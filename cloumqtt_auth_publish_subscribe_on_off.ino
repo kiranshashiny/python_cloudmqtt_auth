@@ -1,7 +1,5 @@
-# Here I have coded to receive on and off messages from the client/app
-# Of interest if the callback.
-# The payload is either populated with on or off messages.
-# This gets printed on the Serial Monitor.
+# This is the client side of things.
+# to see this in action - start the app on the 
 #include <SPI.h>
 #include <Ethernet.h>
 #include <PubSubClient.h>
@@ -25,12 +23,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.println();
 
   if ( strncmp(command, "on", 2) == 0 ) {
-     Serial.println ("Your wish was to ON");
+     Serial.println ("Your wish was to ON, setting pin 9 to high");
+      digitalWrite(9, HIGH); 
   }else if ( strncmp ( command, "off", 3) == 0 ) {
-     Serial.println ("Your wish was to OFF");
+     Serial.println ("Your wish was to OFF, setting pin 9 to low");
+      digitalWrite(9, LOW); 
   }
   //Serial.println (command );
-  
 }
 
 EthernetClient ethClient;
@@ -40,6 +39,7 @@ void setup()
 {
   Serial.begin(9600);
   Ethernet.begin(mac);
+  pinMode(9, OUTPUT);
   
   if (client.connect("arduinoClient", "oxefqvkn", "aKpQPSFiTpXp")) {
     Serial.println ("Connected successfully");

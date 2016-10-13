@@ -1,6 +1,9 @@
-# This only connects to the Cloudmqtt broker
-# Upload this to Arduino IDE and connect to the broker 
-# Go to WebSockets UI and watch the incoming stream of data
+/* This Arduino sketch connects to the Cloudmqtt broker
+ Upload this to Arduino IDE and connect to the broker 
+ Go to WebSockets UI and watch the incoming stream of data
+ If this did not work - check the port, restart the service on the cloudmqtt.com,
+ Open serial port and check or look for debug messages.
+*/
 #
 #include <SPI.h>
 #include <Ethernet.h>

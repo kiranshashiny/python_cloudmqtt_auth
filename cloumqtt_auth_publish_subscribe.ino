@@ -1,6 +1,7 @@
-# This lets you publish and subscribe to Cloudmqtt.com
-# Run this on Arduino at one end, and python-cloudmqtt On/Off on
-# your laptop to receive the messages ( or subscribe )
+/* This lets you publish and subscribe to Cloudmqtt.com
+ Run this on Arduino at one end, and python-cloudmqtt On/Off on
+ your laptop to receive the messages ( or subscribe )
+*/
 #include <SPI.h>
 #include <Ethernet.h>
 #include <PubSubClient.h>
