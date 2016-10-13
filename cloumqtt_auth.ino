@@ -4,7 +4,6 @@
  If this did not work - check the port, restart the service on the cloudmqtt.com,
  Open serial port and check or look for debug messages.
 */
-#
 #include <SPI.h>
 #include <Ethernet.h>
 #include <PubSubClient.h>
@@ -28,16 +27,16 @@ void setup()
   
   if (client.connect("arduinoClient", "oxefqvkn", "aKpQPSFiTpXp")) {
     Serial.println ("Connected successfully");
-    client.publish("outTopic","hello worldGowriDay");
+    client.publish("outTopic","hello world - first message from Arduino Sketch to CloudMQTT");
     client.subscribe("inTopic");
   }
 }
 
 void loop()
 {
-    client.publish("outTopic","hello worldGowriDay");
-    Serial.println ("Published to Outtopic");
+    client.publish("outTopic","hello from Arduino Sketch..");
+    Serial.println ("Published to Outtopic, Open serial port ");
     
     delay ( 1000);
-  client.loop();
+    client.loop();
 }
